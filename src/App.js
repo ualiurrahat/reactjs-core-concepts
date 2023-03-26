@@ -2,27 +2,38 @@ import logo from './logo.svg';
 import './App.css';
 
 
-const number = 10000000000;
+
 const singer = { name: 'mahfuzur rahman', job: 'singer' };
 const singer2 = { name: 'eva rahman', job: 'great singer' };
 const singerStyle = {
   color: 'blue',
   backgroundColor: 'orange',
-  margin:'20px',
-  padding:'20px',
- borderRadius:'5px'
+  margin: '20px',
+  padding: '20px',
+  borderRadius: '5px'
 };
+const friends = [{ name: "naeem", job: "electrical engineer", home: "chattagam" },
+{ name: "shohan", job: "full stack developer", home: "pabna" },
+{ name: "minul", job: "G.O.A.T Freelance Developer", home: "bagerhat" }];
 function App() {
+  const nayoks = ["shahrukh", "salman", "aamir"];
   return (
     <div className="App">
-      <Person name="rahat" prof="web developer"></Person>
-      <Person name="shohan" prof="Goat developer"></Person>
-      <Person name="minul" prof="Goat Wordpress developer"></Person>
+      {/* <Person name={nayoks[0]} prof="web developer"></Person>
+      <Person name={nayoks[1]} prof="Goat developer"></Person>
+      <Person name={nayoks[2]} prof="Goat Wordpress developer"></Person> */
+        nayoks.map(nayok => <Person name={nayok}></Person>)
+      }
+      {
+        friends.map(friend => <Person name={friend.name} prof = {friend.job}></Person>)
+      }
+
+
       <h3>Ajaira component</h3>
-      <Singer phone ="01888" name = {singer.name}></Singer>
-      <Singer phone = "0179799" name = {singer2.name}></Singer>
-     
-    
+      <Singer phone="01888" name={singer.name}></Singer>
+      <Singer phone="0179799" name={singer2.name}></Singer>
+
+
     </div>
   );
 }
@@ -37,11 +48,10 @@ function Person(props) {
   );
 }
 
-function Singer(props)
-{
+function Singer(props) {
   return (
     <div style={singerStyle}>
-      <p>Number: {number}</p>
+
       <h2>Singer : {props.name}</h2>
       <p>Phone: {props.phone}</p>
     </div>
